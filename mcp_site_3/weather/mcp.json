@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "weather": {
+      "disabled": false,
+      "timeout": 60,
+      "command": "python",
+      "transport": "stdio",
+      "args": [
+        "/home/zdh/pro/VideoCode/mcp_site_3/weather/mcp_logger.py",
+        "uv",
+        "--directory",
+        "/home/zdh/pro/VideoCode/mcp_site_3/weather",
+        "run",
+        "weather.py"
+      ]
+    }
+  }
+}

@@ -26,7 +26,7 @@ app = FastAPI(title="LLM API Logger")
 logger = AppLogger("llm.log")
 
 
-@app.post("/chat/completions")
+@app.post("/v1/chat/completions")
 async def proxy_request(request: Request):
 
     body_bytes = await request.body()
@@ -40,7 +40,8 @@ async def proxy_request(request: Request):
         async with httpx.AsyncClient(timeout=None) as client:
             async with client.stream(
                     "POST",
-                    "https://openrouter.ai/api/v1/chat/completions",
+                    # "https://openrouter.ai/api/v1/chat/completions",
+                    "http://o20.ys.ccjj.vip:8080/v1/chat/completions",
                     json=body,
                     headers={
                         "Content-Type": "application/json",
